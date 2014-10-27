@@ -172,11 +172,11 @@ public class RichRuntimeException extends RuntimeException {
 		return RichRuntimeException.enrichImpl(e);
 	}
 
-	public final static RichRuntimeException enrichImpl(Throwable e) {
+	public final static UnhandledRuntimeException enrichImpl(Throwable e) {
 		if (e instanceof RichRuntimeException) { // ( ou UnhandledRuntimeException)
 			return (RichRuntimeException) e;
 		}
-		RichRuntimeException newE = new UnhandledRuntimeException(e);
+		UnhandledRuntimeException newE = new UnhandledRuntimeException(e);
 		StackTraceElement[] st = newE.getStackTrace();
 		st = Arrays.copyOfRange(st, 2, st.length);
 		newE.setStackTrace(st);
