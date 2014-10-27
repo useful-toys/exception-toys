@@ -93,35 +93,35 @@ public class ExceptionService {
 				} else if (t.getMessage() != null) {
 					ExceptionService.writeBox(output, t.getMessage(), 80, 1);
 					ExceptionService.writeLine(output, 80, '+', ' ', '+');
-				}
-				if (RichException.class.isInstance(t)) {
-					Iterator<Object> reasons = ((RichException)t).getReasons().iterator();
-					if (reasons.hasNext()) {
-						ExceptionService.writeBox(output, "Reason: "+ExceptionService.iteratorToString(reasons), 80);
-					}
-					Iterator<Object> operations = ((RichException)t).getOperations().iterator();
-					if (operations.hasNext()) {
-						ExceptionService.writeBox(output, "Operation: "+ExceptionService.iteratorToString(operations), 80);
-					}
-					Iterator<Entry<String, Object>> dataItr = ((RichException)t).getData().entrySet().iterator();
-					while (dataItr.hasNext()) {
-						Entry<String, Object> data = dataItr.next();
-						ExceptionService.writeBox(output, data.getKey()+": "+data.getValue(), 80);
-					}
-				} else if (RichRuntimeException.class.isInstance(t)) {
-					Iterator<Object> reasons = ((RichRuntimeException)t).getReasons().iterator();
-					if (reasons.hasNext()) {
-						ExceptionService.writeBox(output, "Reason: "+ExceptionService.iteratorToString(reasons), 80);
-					}
-					Iterator<Object> operations = ((RichRuntimeException)t).getOperations().iterator();
-					if (operations.hasNext()) {
-						ExceptionService.writeBox(output, "Operation: "+ExceptionService.iteratorToString(operations), 80);
-					}
-					Iterator<Entry<String, Object>> dataItr = ((RichRuntimeException)t).getData().entrySet().iterator();
-					while (dataItr.hasNext()) {
-						Entry<String, Object> data = dataItr.next();
-						ExceptionService.writeBox(output, data.getKey()+": "+data.getValue(), 80);
-					}
+//				}
+//				if (RichException.class.isInstance(t)) {
+//					Iterator<Object> reasons = ((RichException)t).getReasons().iterator();
+//					if (reasons.hasNext()) {
+//						ExceptionService.writeBox(output, "Reason: "+ExceptionService.iteratorToString(reasons), 80);
+//					}
+//					Iterator<Object> operations = ((RichException)t).getOperations().iterator();
+//					if (operations.hasNext()) {
+//						ExceptionService.writeBox(output, "Operation: "+ExceptionService.iteratorToString(operations), 80);
+//					}
+//					Iterator<Entry<String, Object>> dataItr = ((RichException)t).getData().entrySet().iterator();
+//					while (dataItr.hasNext()) {
+//						Entry<String, Object> data = dataItr.next();
+//						ExceptionService.writeBox(output, data.getKey()+": "+data.getValue(), 80);
+//					}
+//				} else if (RichRuntimeException.class.isInstance(t)) {
+//					Iterator<Object> reasons = ((RichRuntimeException)t).getReasons().iterator();
+//					if (reasons.hasNext()) {
+//						ExceptionService.writeBox(output, "Reason: "+ExceptionService.iteratorToString(reasons), 80);
+//					}
+//					Iterator<Object> operations = ((RichRuntimeException)t).getOperations().iterator();
+//					if (operations.hasNext()) {
+//						ExceptionService.writeBox(output, "Operation: "+ExceptionService.iteratorToString(operations), 80);
+//					}
+//					Iterator<Entry<String, Object>> dataItr = ((RichRuntimeException)t).getData().entrySet().iterator();
+//					while (dataItr.hasNext()) {
+//						Entry<String, Object> data = dataItr.next();
+//						ExceptionService.writeBox(output, data.getKey()+": "+data.getValue(), 80);
+//					}
 //				} else if (IllegalControlStateException.class.isInstance(t)) {
 //					ExceptionService.caixa(output, "Violação de integridade da execução.", 80);
 //				} else if (IllegalDataStateException.class.isInstance(t)) {

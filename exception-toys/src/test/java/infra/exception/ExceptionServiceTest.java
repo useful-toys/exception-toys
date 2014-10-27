@@ -45,15 +45,15 @@ public class ExceptionServiceTest {
         } catch (Exception e) {
             ExceptionService.reportException(System.err, e);
         }
-        try {
-            try {
-                throw new FileNotFoundException("O arquivo não foi encontrado!");
-            } catch (IOException e) {
-                throw new RichException(MotivoA.ARQUIVO, e);
-            }
-        } catch (Exception e) {
-            ExceptionService.reportException(System.err, e);
-        }
+//        try {
+//            try {
+//                throw new FileNotFoundException("O arquivo não foi encontrado!");
+//            } catch (IOException e) {
+//                throw new RichException(MotivoA.ARQUIVO, e);
+//            }
+//        } catch (Exception e) {
+//            ExceptionService.reportException(System.err, e);
+//        }
         ExceptionService.install();
         throw new RuntimeException("Um outro erro...");
     }
