@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="opl-toys-2.0" default="default" basedir=".">
+    <description>Downloads dependencies</description>
+	<dirname property="lib.dir" file="${ant.file}" />
+    <property name="download.dir" value="${lib.dir}/download" />
+	
+	<echo message="${lib.dir}" />
+	<echo message="${download.dir}" />
+
+    <target name="lib-init" description="Download dependencies" >
+        <mkdir dir="${download.dir}" />
+                
+        <get dest="${download.dir}" skipexisting="true" src="http://www.slf4j.org/dist/slf4j-1.7.7.zip"/>
+        <copy todir="${lib.dir}/Slf4j-1.7.7" preservelastmodified="true" flatten="true">
+            <zipfileset src="${download.dir}/slf4j-1.7.7.zip">
+                <patternset>
+                    <include name="slf4j-*/*.jar"/>
+                    <exclude name="**/*-sources.jar"/>
+                </patternset>
+            </zipfileset>
+        </copy>        
+    </target>
+</project>
