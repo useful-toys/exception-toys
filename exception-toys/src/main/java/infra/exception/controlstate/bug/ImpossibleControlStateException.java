@@ -18,7 +18,7 @@ package infra.exception.controlstate.bug;
 import infra.exception.controlstate.IllegalControlStateException;
 
 /**
- * Marks a code point that known not being possible to be reached by execution.
+ * Marks a code point that is theoretically known not being possible to be reached by execution.
  * If code is correct, then this code point must not be achieved.
  * <p>
  * This is a generic mark. There are more specific marks that should be

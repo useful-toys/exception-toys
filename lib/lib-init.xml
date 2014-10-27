@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="opl-toys-2.0" default="default" basedir=".">
+<project name="opl-toys-2.0" default="lib-init" basedir="." >
     <description>Downloads dependencies</description>
 	<dirname property="lib.dir" file="${ant.file}" />
     <property name="download.dir" value="${lib.dir}/download" />
 	
 	<echo message="${lib.dir}" />
-	<echo message="${download.dir}" />
 
-    <target name="lib-init" description="Download dependencies" >
-        <mkdir dir="${download.dir}" />
-                
-        <get dest="${download.dir}" skipexisting="true" src="http://www.slf4j.org/dist/slf4j-1.7.7.zip"/>
-        <copy todir="${lib.dir}/Slf4j-1.7.7" preservelastmodified="true" flatten="true">
-            <zipfileset src="${download.dir}/slf4j-1.7.7.zip">
-                <patternset>
-                    <include name="slf4j-*/*.jar"/>
-                    <exclude name="**/*-sources.jar"/>
-                </patternset>
-            </zipfileset>
-        </copy>        
-    </target>
+	<target name="lib-init" description="Download dependencies" >
+	    	<mkdir dir="${lib.dir}/Slf4j-1.7.7"/>
+	    	<get dest="${lib.dir}/Slf4j-1.7.7" skipexisting="true" src="http://central.maven.org/maven2/org/slf4j/slf4j-simple/1.7.7/slf4j-simple-1.7.7.jar" />
+	    	<get dest="${lib.dir}/Slf4j-1.7.7" skipexisting="true" src="http://central.maven.org/maven2/org/slf4j/slf4j-api/1.7.7/slf4j-api-1.7.7.jar" />
+	    	<mkdir dir="${lib.dir}/JUnit-4.11" />
+	    	<get dest="${lib.dir}/JUnit-4.11" skipexisting="true" src="http://central.maven.org/maven2/junit/junit/4.11/junit-4.11.jar" />
+	    	<get dest="${lib.dir}/JUnit-4.11" skipexisting="true" src="http://central.maven.org/maven2/junit/junit/4.11/junit-4.11.jar" />
+	    	<get dest="${lib.dir}/JUnit-4.11" skipexisting="true" src="http://central.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar" />
+	    </target>
 </project>
