@@ -17,10 +17,7 @@ package infra.exception;
 
 import java.io.PrintStream;
 import java.util.Iterator;
-import java.util.Map.Entry;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.logging.Logger;
 
 
 /**
@@ -38,7 +35,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class ExceptionService {
-	public static final Logger logger = LoggerFactory.getLogger(ExceptionService.class);
+	public static final Logger logger = Logger.getLogger("");
 
 	/**
 	 * O handler padão de exceções. Imprime imprime em {@link System#err} uma descrição da exceção utilizando {@link #reportException(PrintStream, Throwable)}
