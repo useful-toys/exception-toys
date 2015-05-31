@@ -18,6 +18,8 @@ package infra.exception;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import org.usefultoys.exception.ExceptionService;
+
 public class ExceptionServiceTest {
 
     public enum MotivoA {
