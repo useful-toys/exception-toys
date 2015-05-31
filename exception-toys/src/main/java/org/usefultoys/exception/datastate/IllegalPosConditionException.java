@@ -21,5 +21,5 @@ public class IllegalPosConditionException extends IllegalDataStateException {
 
 	public IllegalPosConditionException() { super(); }
 	public IllegalPosConditionException(String message) { super(message); }
-	public IllegalPosConditionException(SystemRule sr) { super(sr); }
+	public IllegalPosConditionException(Object sr) { super(sr); }
 }

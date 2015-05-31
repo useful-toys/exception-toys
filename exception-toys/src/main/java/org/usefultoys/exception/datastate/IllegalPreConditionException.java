@@ -20,5 +20,5 @@ public class IllegalPreConditionException extends IllegalDataStateException {
 
 	public IllegalPreConditionException() { super(); }
 	public IllegalPreConditionException(String message) { super(message); }
-	public IllegalPreConditionException(SystemRule sr) { super(sr); }
+	public IllegalPreConditionException(Object sr) { super(sr); }
 }

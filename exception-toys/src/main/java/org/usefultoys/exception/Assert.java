@@ -6,7 +6,6 @@ import org.usefultoys.exception.datastate.IllegalEnvironmentDataException;
 import org.usefultoys.exception.datastate.IllegalInvariantException;
 import org.usefultoys.exception.datastate.IllegalPosConditionException;
 import org.usefultoys.exception.datastate.IllegalPreConditionException;
-import org.usefultoys.exception.datastate.SystemRule;
 
 /**
  * A set of objects that implement many typical validation of assertions.
@@ -22,13 +21,13 @@ public abstract class Assert {
 	}
 
 	public static final Assert Argument = new Assert() {
-		@Override protected RuntimeException createException(SystemRule rule) { return new IllegalArgumentDataException(rule); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalArgumentDataException(rule); }
 		@Override protected RuntimeException createException(String message) { return new IllegalArgumentDataException(message); }
 		@Override protected RuntimeException createException() { return new IllegalArgumentDataException(); }
 	};
 
 	public static final Assert Attribute = new Assert() {
-		@Override protected RuntimeException createException(SystemRule rule) { return new IllegalAttributeDataException(rule); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalAttributeDataException(rule); }
 		@Override protected RuntimeException createException(String message) { return new IllegalAttributeDataException(message); }
 		@Override protected RuntimeException createException() { return new IllegalAttributeDataException(); }
 	};
@@ -36,7 +35,7 @@ public abstract class Assert {
 	public static final Assert Environment = new Environment();
 
 	public static class Environment extends Assert {
-		@Override protected RuntimeException createException(SystemRule rule) { return new IllegalEnvironmentDataException(rule); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalEnvironmentDataException(rule); }
 		@Override protected RuntimeException createException(String message) { return new IllegalEnvironmentDataException(message); }
 		@Override protected RuntimeException createException() { return new IllegalEnvironmentDataException(); }
 
@@ -47,26 +46,26 @@ public abstract class Assert {
 	}
 
 	public static final Assert Precondition = new Assert() {
-		@Override protected RuntimeException createException(SystemRule rule) { return new IllegalPreConditionException(rule); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalPreConditionException(rule); }
 		@Override protected RuntimeException createException(String message) { return new IllegalPreConditionException(message); }
 		@Override protected RuntimeException createException() { return new IllegalPreConditionException(); }
 	};
 
 	public static final Assert Poscondition = new Assert() {
-		@Override protected RuntimeException createException(SystemRule rule) { return new IllegalPosConditionException(rule); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalPosConditionException(rule); }
 		@Override protected RuntimeException createException(String message) { return new IllegalPosConditionException(message); }
 		@Override protected RuntimeException createException() { return new IllegalPosConditionException(); }
 	};
 
 	public static final Assert Invariant = new Assert() {
-		@Override protected RuntimeException createException(SystemRule rule) { return new IllegalInvariantException(rule); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalInvariantException(rule); }
 		@Override protected RuntimeException createException(String message) { return new IllegalInvariantException(message); }
 		@Override protected RuntimeException createException() { return new IllegalInvariantException(); }
 	};
 
 	protected abstract RuntimeException createException();
 	protected abstract RuntimeException createException(String message);
-	protected abstract RuntimeException createException(SystemRule rule);
+	protected abstract RuntimeException createException(Object rule);
 
 	/** Argument must satisfy a boolean condition. */
 	public final boolean check(boolean condition) throws RuntimeException {
@@ -83,7 +82,7 @@ public abstract class Assert {
 	}
 
 	/** Argument must satisfy a boolean condition expected by a system rule. */
-	public final boolean check(SystemRule rule, boolean expression) throws RuntimeException {
+	public final boolean check(Object rule, boolean expression) throws RuntimeException {
 		if (! expression) throw createException(rule);
 		return true;
 	}
@@ -147,7 +146,7 @@ public abstract class Assert {
 	}
 //
 //	/** Argument(s) must not be <code>null</code> as expected by a system rule. */
-//	public final <T> boolean notNull(SystemRule rule, T argument) throws RuntimeException {
+//	public final <T> boolean notNull(Object rule, T argument) throws RuntimeException {
 //		if (argument == null) throw createException(rule);
 //		return true;
 //	}

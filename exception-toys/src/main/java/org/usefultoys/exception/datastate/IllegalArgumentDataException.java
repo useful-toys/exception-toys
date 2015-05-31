@@ -25,5 +25,5 @@ public class IllegalArgumentDataException extends IllegalPreConditionException {
 
 	public IllegalArgumentDataException() { super(); }
 	public IllegalArgumentDataException(String message) { super(message); }
-	public IllegalArgumentDataException(SystemRule sr) { super(sr); }
+	public IllegalArgumentDataException(Object sr) { super(sr); }
 }

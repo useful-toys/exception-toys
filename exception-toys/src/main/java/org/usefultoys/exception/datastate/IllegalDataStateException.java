@@ -24,11 +24,11 @@ package org.usefultoys.exception.datastate;
  */
 public class IllegalDataStateException extends IllegalStateException {
 	private static final long serialVersionUID = 1L;
-	private final SystemRule systemRule;
+	private final Object Object;
 
-	protected IllegalDataStateException() { super(); this.systemRule = null; }
-	protected IllegalDataStateException(String message) { super(message); this.systemRule = null; }
-	protected IllegalDataStateException(SystemRule sr) { super(); this.systemRule = sr; }
+	protected IllegalDataStateException() { super(); this.Object = null; }
+	protected IllegalDataStateException(String message) { super(message); this.Object = null; }
+	protected IllegalDataStateException(Object sr) { super(); this.Object = sr; }
 
-	public SystemRule getSystemRule() { return this.systemRule; }
+	public Object getObject() { return this.Object; }
 }

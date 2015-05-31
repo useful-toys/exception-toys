@@ -15,7 +15,6 @@
  */
 package org.usefultoys.exception.controlstate;
 
-import org.usefultoys.exception.datastate.SystemRule;
 
 /**
  * Common class for errors caused by control flow (execution) achieving invalid
@@ -26,13 +25,13 @@ import org.usefultoys.exception.datastate.SystemRule;
  */
 public class IllegalControlStateException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
-	private SystemRule systemRule;
+	private Object Object;
 
 	public IllegalControlStateException() { super(); }
 	public IllegalControlStateException(String message, Throwable cause) { super(message, cause); }
 	public IllegalControlStateException(String message) { super(message); }
 	public IllegalControlStateException(Throwable cause) { super(cause); }
-	public IllegalControlStateException(SystemRule sr) { super(); this.systemRule = sr; }
+	public IllegalControlStateException(Object sr) { super(); this.Object = sr; }
 
-	public SystemRule getSystemRule() { return this.systemRule; }
+	public Object getObject() { return this.Object; }
 }

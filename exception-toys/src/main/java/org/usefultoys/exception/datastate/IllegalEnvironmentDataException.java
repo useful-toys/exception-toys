@@ -25,5 +25,5 @@ public class IllegalEnvironmentDataException extends IllegalPreConditionExceptio
 
 	public IllegalEnvironmentDataException() { super(); }
 	public IllegalEnvironmentDataException(String message) { super(message); }
-	public IllegalEnvironmentDataException(SystemRule sr) { super(sr); }
+	public IllegalEnvironmentDataException(Object sr) { super(sr); }
 }

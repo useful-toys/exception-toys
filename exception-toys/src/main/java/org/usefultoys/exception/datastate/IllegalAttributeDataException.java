@@ -25,5 +25,5 @@ public class IllegalAttributeDataException extends IllegalPreConditionException 
 
 	public IllegalAttributeDataException() { super(); }
 	public IllegalAttributeDataException(String message) { super(message); }
-	public IllegalAttributeDataException(SystemRule rule) { super(rule); }
+	public IllegalAttributeDataException(Object rule) { super(rule); }
 }

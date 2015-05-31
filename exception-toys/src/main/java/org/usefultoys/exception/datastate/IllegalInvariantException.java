@@ -21,5 +21,5 @@ public class IllegalInvariantException extends IllegalDataStateException {
 
 	public IllegalInvariantException() { super(); }
 	public IllegalInvariantException(String message) { super(message); }
-	public IllegalInvariantException(SystemRule sr) { super(sr); }
+	public IllegalInvariantException(Object sr) { super(sr); }
 }
