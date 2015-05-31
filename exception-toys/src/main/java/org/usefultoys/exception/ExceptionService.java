@@ -17,6 +17,7 @@ package org.usefultoys.exception;
 
 import java.io.PrintStream;
 import java.util.Iterator;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
@@ -73,7 +74,7 @@ public class ExceptionService {
 	 *            Exceção para ser reportada.
 	 */
 	public static void reportException(PrintStream output, Throwable throwable) {
-		ExceptionService.logger.error("Falha durante a execução.", throwable);
+		ExceptionService.logger.log(Level.SEVERE, "Falha durante a execução.", throwable);
 
 		/* For robustness, do not fail if there is a bug within the report. */
 		try {
@@ -141,7 +142,7 @@ public class ExceptionService {
 			output.println();
 			output.flush();
 		} catch (Exception e) {
-			ExceptionService.logger.error("Falha ao imprimir relatório de erro.", e);
+			ExceptionService.logger.log(Level.SEVERE, "Falha ao imprimir relatório de erro.", e);
 		}
 	}
 
