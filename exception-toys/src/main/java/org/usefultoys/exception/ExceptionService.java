@@ -15,7 +15,7 @@
  */
 package org.usefultoys.exception;
 
-import java.io.PrintStream;
+import java.io.PrintStream;	
 import java.util.Iterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -36,7 +36,7 @@ import java.util.logging.Logger;
  *
  */
 public class ExceptionService {
-	public static final Logger logger = Logger.getLogger("");
+	public static final Logger logger = Logger.getLogger("ExceptionService");
 
 	/**
 	 * O handler padão de exceções. Imprime imprime em {@link System#err} uma descrição da exceção utilizando {@link #reportException(PrintStream, Throwable)}
