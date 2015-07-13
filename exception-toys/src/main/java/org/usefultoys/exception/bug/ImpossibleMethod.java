@@ -13,21 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.usefultoys.exception.design;
-
-import org.usefultoys.exception.data.IllegalDataStateException;
-
+package org.usefultoys.exception.bug;
 
 /**
- * There is data that shall not be used, although allowed by the domain.
- * A better interface design should not lead to data that are is not intended to be used.
- * However, the interface or domain may have been designed by third party or you may be overriding
- * the interface for a purpose that was not originally designed.
+ * Marks a method that is not possible to be called. If code is correct, then
+ * this methods must not be called.
+ *
  * @author Daniel Felix Ferber
  */
-public class UnsupportedDataException extends IllegalDataStateException {
+public class ImpossibleMethod extends ImpossibleControl {
 	private static final long serialVersionUID = 1L;
-
-	public UnsupportedDataException() { super(); }
-	public UnsupportedDataException(String message) { super(message); }
+	public ImpossibleMethod() { super(); }
+	public ImpossibleMethod(String message) { super(message); }
 }

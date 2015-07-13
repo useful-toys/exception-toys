@@ -15,7 +15,7 @@
  */
 package org.usefultoys.exception.bug;
 
-import org.usefultoys.exception.IllegalControlStateException;
+import org.usefultoys.exception.Failure;
 
 /**
  * Marks a code point that is theoretically known not being possible to be reached by execution.
@@ -31,19 +31,19 @@ import org.usefultoys.exception.IllegalControlStateException;
  * Example:
  *
  * <pre>
- * while (true) {
- *   bla bla bla (no break anywhere);
- * }
- * // Execution never reaches this code point.
- * throw new ImpossibleControlStateException();
- * </pre>
+ while (true) {
+   bla bla bla (no break anywhere);
+ }
+ // Execution never reaches this code point.
+ throw new ImpossibleControl();
+ </pre>
  *
  * @author Daniel Felix Ferber
  */
-public class ImpossibleControlStateException extends IllegalControlStateException {
+public class ImpossibleControl extends Failure {
 	private static final long serialVersionUID = 1L;
-	public ImpossibleControlStateException() { super(); }
-	public ImpossibleControlStateException(String message) { super(message); }
-	protected ImpossibleControlStateException(Throwable e) { super(e); }
-	protected ImpossibleControlStateException(String message, Throwable e) { super(message, e); }
+	public ImpossibleControl() { super(); }
+	public ImpossibleControl(String message) { super(message); }
+	protected ImpossibleControl(Throwable e) { super(e); }
+	protected ImpossibleControl(String message, Throwable e) { super(message, e); }
 }

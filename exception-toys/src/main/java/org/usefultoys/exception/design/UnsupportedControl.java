@@ -15,20 +15,21 @@
  */
 package org.usefultoys.exception.design;
 
+import org.usefultoys.exception.Failure;
+
 /**
- * The method was not intended to be called, although it is available from the interface.
- * A better design should not provide methods that are not intended to be called.
- * However, the interface may have been designed by third party or you may be overriding
- * the interface for a purpose that was not originally designed.
- * <p>
- * For example, the all objects provide {@link #hashCode()} or {@link #equals(Object)}, although
- * not all classes supporte comparing or hashing.
+ * Common class for errors caused by control flow (execution) achieving a state
+ * that should not be called by convention. This exception supplements the
+ * standard {@link RuntimeException} by providing a more semantically rich
+ * description of the problem.
  *
  * @author Daniel Felix Ferber
  */
-public class UnsupportedMethodException extends UnsupportedConstrolStateException {
+class UnsupportedControl extends Failure {
 	private static final long serialVersionUID = 1L;
 	
-	public UnsupportedMethodException() { super(); }
-	public UnsupportedMethodException(String message) { super(message); }
+	protected UnsupportedControl() { super(); }
+	protected UnsupportedControl(String message, Throwable cause) { super(message, cause); }
+	protected UnsupportedControl(String message) { super(message); }
+	protected UnsupportedControl(Throwable cause) { super(cause); }
 }

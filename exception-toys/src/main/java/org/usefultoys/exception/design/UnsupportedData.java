@@ -15,19 +15,19 @@
  */
 package org.usefultoys.exception.design;
 
-import org.usefultoys.exception.IllegalControlStateException;
+import org.usefultoys.exception.data.IllegalDataStateException;
+
 
 /**
- * The control flow attempted to execute code without having first executed a
- * dependency that was designed to be executed first. An ideal design should not
- * require call dependency within the same class. This is common for objects
- * with methods that are designed to be executed in a certain order.
- *
+ * There is data that shall not be used, although allowed by the domain.
+ * A better interface design should not lead to data that are is not intended to be used.
+ * However, the interface or domain may have been designed by third party or you may be overriding
+ * the interface for a purpose that was not originally designed.
  * @author Daniel Felix Ferber
  */
-public class TemporalDependencyException extends IllegalControlStateException {
+public class UnsupportedData extends IllegalDataStateException {
 	private static final long serialVersionUID = 1L;
 
-	public TemporalDependencyException() { super(); }
-	public TemporalDependencyException(String message) { super(message); }
+	public UnsupportedData() { super(); }
+	public UnsupportedData(String message) { super(message); }
 }

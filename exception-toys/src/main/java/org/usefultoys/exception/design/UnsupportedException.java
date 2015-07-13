@@ -28,7 +28,7 @@ import java.io.IOException;
  *
  * @author Daniel Felix Ferber
  */
-public class UnsupportedException extends UnsupportedConstrolStateException {
+public class UnsupportedException extends UnsupportedControl {
 	private static final long serialVersionUID = 1L;
 	
 	public UnsupportedException(Throwable cause) { super(cause); }

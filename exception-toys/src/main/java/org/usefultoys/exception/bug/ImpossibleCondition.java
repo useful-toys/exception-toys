@@ -24,20 +24,20 @@ package org.usefultoys.exception.bug;
  * <ul>
  * <li>Test explicitly each expected condition.
  * <li>Also test explicitly conditions that are never possible and mark them with
- * {@link ImpossibleConditionException}.
+ * {@link ImpossibleCondition}.
  * <li>Do not trust <code>else</code> or <code>default</code> clauses. Instead, test explicitly the
  * "other" condition. Mark <code>else</code> and <code>default</code> clauses with
- * {@link ImpossibleConditionException}.
+ * {@link ImpossibleCondition}.
  * </ul>
  * <p>
  * Example:
  * <pre>
- * switch (state) {
- *   case A: bla bla bla; break;
- *   case B: bla bla bla; break;
- *   default: throw new ImpossibleConditionException();
- * }
- * </pre>
+ switch (state) {
+   case A: bla bla bla; break;
+   case B: bla bla bla; break;
+   default: throw new ImpossibleCondition();
+ }
+ </pre>
  * Example:
  * <pre>
  * Object a = null;
@@ -48,20 +48,20 @@ package org.usefultoys.exception.bug;
  * }
  * // here, both a and b are never null!
  * if (a != null && b != null) {
- *   bla bla bla;
- * } else if (a != null) {
- *   bla bla bla;
- * } else if (b != null) {
- *   bla bla bla;
- * } else {
- *   throw new ImpossibleConditionException();
- * }
- * </pre>
+   bla bla bla;
+ } else if (a != null) {
+   bla bla bla;
+ } else if (b != null) {
+   bla bla bla;
+ } else {
+   throw new ImpossibleCondition();
+ }
+ </pre>
  *
  * @author Daniel Felix Ferber
  */
-public class ImpossibleConditionException extends ImpossibleControlStateException {
+public class ImpossibleCondition extends ImpossibleControl {
 	private static final long serialVersionUID = 1L;
-	public ImpossibleConditionException() { super(); }
-	public ImpossibleConditionException(String message) { super(message); }
+	public ImpossibleCondition() { super(); }
+	public ImpossibleCondition(String message) { super(message); }
 }

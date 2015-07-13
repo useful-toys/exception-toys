@@ -15,21 +15,19 @@
  */
 package org.usefultoys.exception.design;
 
-import org.usefultoys.exception.IllegalControlStateException;
+import org.usefultoys.exception.Failure;
 
 /**
- * Common class for errors caused by control flow (execution) achieving a state
- * that should not be called by convention. This exception supplements the
- * standard {@link RuntimeException} by providing a more semantically rich
- * description of the problem.
+ * The control flow attempted to execute code without having first executed a
+ * dependency that was designed to be executed first. An ideal design should not
+ * require call dependency within the same class. This is common for objects
+ * with methods that are designed to be executed in a certain order.
  *
  * @author Daniel Felix Ferber
  */
-class UnsupportedConstrolStateException extends IllegalControlStateException {
+public class TemporalDependency extends Failure {
 	private static final long serialVersionUID = 1L;
-	
-	protected UnsupportedConstrolStateException() { super(); }
-	protected UnsupportedConstrolStateException(String message, Throwable cause) { super(message, cause); }
-	protected UnsupportedConstrolStateException(String message) { super(message); }
-	protected UnsupportedConstrolStateException(Throwable cause) { super(cause); }
+
+	public TemporalDependency() { super(); }
+	public TemporalDependency(String message) { super(message); }
 }

@@ -13,22 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.usefultoys.exception;
-
-
+package org.usefultoys.exception.design;
 
 /**
- * Common class for errors caused by control flow (execution) achieving invalid
- * state. This exception supplements the standard {@link RuntimeFailure} by
- * providing a more semantically richer description of the problem.
+ * The method or operation was not intended to be called in arbitrary order
+ * relative to other methods or operations, although it is available from the
+ * interface. A better interface design should not provide methods that are not
+ * intended to be called. However, the interface may have been designed by third
+ * party or you may be overriding the interface for a purpose that was not
+ * originally designed.
  *
  * @author Daniel Felix Ferber
  */
-public class IllegalControlStateException extends RuntimeFailure {
+public class UnsupportedCallOrder extends UnsupportedControl {
 	private static final long serialVersionUID = 1L;
 
-	protected IllegalControlStateException() { super(); }
-	public IllegalControlStateException(String message, Throwable cause) { super(message, cause); }
-	public IllegalControlStateException(String message) { super(message); }
-	public IllegalControlStateException(Throwable cause) { super(cause); }
+	public UnsupportedCallOrder() { super(); }
+	public UnsupportedCallOrder(String message) { super(message); }
 }

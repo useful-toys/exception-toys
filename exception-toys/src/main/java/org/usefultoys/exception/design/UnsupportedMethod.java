@@ -16,16 +16,19 @@
 package org.usefultoys.exception.design;
 
 /**
- * The method was not intended to be called simultaneously by multiple threads.
- * A better design should support concurrency gracefully, but this is not always worth or possible.
+ * The method was not intended to be called, although it is available from the interface.
+ * A better design should not provide methods that are not intended to be called.
+ * However, the interface may have been designed by third party or you may be overriding
+ * the interface for a purpose that was not originally designed.
  * <p>
- * Example:
+ * For example, the all objects provide {@link #hashCode()} or {@link #equals(Object)}, although
+ * not all classes supporte comparing or hashing.
  *
  * @author Daniel Felix Ferber
  */
-public class UnsupportedReentrantException extends UnsupportedConstrolStateException {
+public class UnsupportedMethod extends UnsupportedControl {
 	private static final long serialVersionUID = 1L;
 	
-	public UnsupportedReentrantException() { super(); }
-	public UnsupportedReentrantException(String message) { super(message); }
+	public UnsupportedMethod() { super(); }
+	public UnsupportedMethod(String message) { super(message); }
 }

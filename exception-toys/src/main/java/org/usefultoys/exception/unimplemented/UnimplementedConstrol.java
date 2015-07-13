@@ -15,7 +15,7 @@
  */
 package org.usefultoys.exception.unimplemented;
 
-import org.usefultoys.exception.IllegalControlStateException;
+import org.usefultoys.exception.Failure;
 
 /**
  * Marks a code point that has not yet been implemented. Signals that there is
@@ -30,19 +30,19 @@ import org.usefultoys.exception.IllegalControlStateException;
  * </ul>
  * <p>Example:
  * <pre>
- * while (true) {
- *   bla bla bla (no break anywhere);
- * }
- * // One does not know how to implement this algorithm after the loop.
- * throw new UnimplementedConstrolStateException();
- * </pre>
+ while (true) {
+   bla bla bla (no break anywhere);
+ }
+ // One does not know how to implement this algorithm after the loop.
+ throw new UnimplementedConstrol();
+ </pre>
  * @author Daniel Felix Ferber
  */
-class UnimplementedConstrolStateException extends IllegalControlStateException {
+class UnimplementedConstrol extends Failure {
 	private static final long serialVersionUID = 1L;
 	
-	protected UnimplementedConstrolStateException() { super(); }
-	protected UnimplementedConstrolStateException(String message, Throwable cause) { super(message, cause); }
-	protected UnimplementedConstrolStateException(String message) { super(message); }
-	protected UnimplementedConstrolStateException(Throwable cause) { super(cause); }
+	protected UnimplementedConstrol() { super(); }
+	protected UnimplementedConstrol(String message, Throwable cause) { super(message, cause); }
+	protected UnimplementedConstrol(String message) { super(message); }
+	protected UnimplementedConstrol(Throwable cause) { super(cause); }
 }

@@ -15,19 +15,22 @@
  */
 package org.usefultoys.exception.design;
 
+
 /**
- * The method or operation was not intended to be called in arbitrary order
- * relative to other methods or operations, although it is available from the
- * interface. A better interface design should not provide methods that are not
- * intended to be called. However, the interface may have been designed by third
- * party or you may be overriding the interface for a purpose that was not
- * originally designed.
+ * The conditional statement (if/switch) has reached a condition that that is
+ * known not to be possible. A better code should not provide flows or data
+ * domains that allow conditions that are not possible. However, the domain or
+ * interface may have been designed by third, or rigorous and strict domain may
+ * not be worth.
+ * <p>
+ * For example, flags or enumerations may be declared as int values, but not all
+ * integers are a valid flag or enumeration value.
  *
  * @author Daniel Felix Ferber
  */
-public class UnsupportedCallOrderException extends UnsupportedConstrolStateException {
+public class UnsupportedCondition extends UnsupportedControl {
 	private static final long serialVersionUID = 1L;
 
-	public UnsupportedCallOrderException() { super(); }
-	public UnsupportedCallOrderException(String message) { super(message); }
+	public UnsupportedCondition() { super(); }
+	public UnsupportedCondition(String message) { super(message); }
 }

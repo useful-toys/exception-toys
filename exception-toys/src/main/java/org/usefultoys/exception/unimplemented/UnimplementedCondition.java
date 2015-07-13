@@ -23,18 +23,18 @@ package org.usefultoys.exception.unimplemented;
  * <p>
  * Example:
  * <pre>
- * switch (state) {
- *   case A: bla bla bla; break;
- *   case B: throw new UnimplementedConditionException("Condition for state 'B' not implemented.");
- *   default: bla bla bla;
- * }
- * </pre>
+ switch (state) {
+   case A: bla bla bla; break;
+   case B: throw new UnimplementedCondition("Condition for state 'B' not implemented.");
+   default: bla bla bla;
+ }
+ </pre>
  * Example:
  * <pre>
  * if (a != null && b != null) {
- *   bla bla bla;
- * } else if (a != null) {
- *   throw new UnimplementedConditionException("Condition for 'a != null && b ==null' not implemented.");
+   bla bla bla;
+ } else if (a != null) {
+   throw new UnimplementedCondition("Condition for 'a != null && b ==null' not implemented.");
  * } else if (b != null) {
  *   bla bla bla;
  * } else {
@@ -43,9 +43,9 @@ package org.usefultoys.exception.unimplemented;
  * </pre>
  * @author Daniel Felix Ferber
  */
-public class UnimplementedConditionException extends UnimplementedConstrolStateException {
+public class UnimplementedCondition extends UnimplementedConstrol {
 	private static final long serialVersionUID = 1L;
 	
-	public UnimplementedConditionException() { super(); }
-	public UnimplementedConditionException(String message) { super(message); }
+	public UnimplementedCondition() { super(); }
+	public UnimplementedCondition(String message) { super(message); }
 }

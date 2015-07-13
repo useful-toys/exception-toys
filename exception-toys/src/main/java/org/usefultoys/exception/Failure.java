@@ -42,9 +42,9 @@ import java.util.logging.Logger;
  *
  * @author Daniel Felix Ferber
  */
-public class RuntimeFailure extends RuntimeException {
+public class Failure extends RuntimeException {
 	private static final long serialVersionUID = 1L;
-	private static final Logger logger = Logger.getLogger(RuntimeFailure.class.getSimpleName());
+	private static final Logger logger = Logger.getLogger(Failure.class.getSimpleName());
 
 	/**
 	 * Additional structured data carried by the exception for further
@@ -68,48 +68,48 @@ public class RuntimeFailure extends RuntimeException {
 		return o;
 	}
 
-	public RuntimeFailure() {
+	public Failure() {
 		super();
 	}
 	
-	public RuntimeFailure(Object reason) {
+	public Failure(Object reason) {
 		super();
 		if (reason == null) {
-			RuntimeFailure.logger.log(Level.SEVERE, "Called RuntimeFailure(reason={0}) with null parameter.", reason);
+			Failure.logger.log(Level.SEVERE, "Called RuntimeFailure(reason={0}) with null parameter.", reason);
 		}
 		this.reasons.add(reason);
 	}
 
-	public RuntimeFailure(Object reason, Throwable cause) {
+	public Failure(Object reason, Throwable cause) {
 		super(cause);
 		if (reason == null || cause == null) {
-			RuntimeFailure.logger.log(Level.SEVERE, "Called RuntimeFailure(reason={0}, cause={1}) with null parameter.", new Object[] {RuntimeFailure.nullToStr(reason), RuntimeFailure.nullToStr(cause)});
+			Failure.logger.log(Level.SEVERE, "Called RuntimeFailure(reason={0}, cause={1}) with null parameter.", new Object[] {Failure.nullToStr(reason), Failure.nullToStr(cause)});
 		}
 		this.reasons.add(reason);
 	}
 
-	public RuntimeFailure(Object operation, Object reason) {
+	public Failure(Object operation, Object reason) {
 		super();
 		if (operation == null || reason == null) {
-			RuntimeFailure.logger.log(Level.SEVERE, "Called RuntimeFailure(operation={0}, reason={1}) with null parameter.", new Object[]{RuntimeFailure.nullToStr(operation), RuntimeFailure.nullToStr(reason)});
+			Failure.logger.log(Level.SEVERE, "Called RuntimeFailure(operation={0}, reason={1}) with null parameter.", new Object[]{Failure.nullToStr(operation), Failure.nullToStr(reason)});
 		}
 		this.reasons.add(reason);
 		this.operations.add(operation);
 	}
 
-	public RuntimeFailure(Object operation, Object reason, Throwable cause) {
+	public Failure(Object operation, Object reason, Throwable cause) {
 		super(cause);
 		if (operation == null || reason == null || cause == null) {
-			RuntimeFailure.logger.log(Level.SEVERE, "Called RuntimeFailure(operation={0}, reason={1}, cause={2}) with null parameter.", new Object[] { RuntimeFailure.nullToStr(operation), RuntimeFailure.nullToStr(reason), RuntimeFailure.nullToStr(cause) });
+			Failure.logger.log(Level.SEVERE, "Called RuntimeFailure(operation={0}, reason={1}, cause={2}) with null parameter.", new Object[] { Failure.nullToStr(operation), Failure.nullToStr(reason), Failure.nullToStr(cause) });
 		}
 		this.reasons.add(reason);
 		this.operations.add(operation);
 	}
 
 	/** Builder method to add meta data to the exception. */
-	public RuntimeFailure data(String key, Object value) {
+	public Failure data(String key, Object value) {
 		if (key == null || value == null) {
-			RuntimeFailure.logger.log(Level.SEVERE, "Called data(key={0}, value={1}) with null parameter.", new Object[] {RuntimeFailure.nullToStr(key), RuntimeFailure.nullToStr(value)});
+			Failure.logger.log(Level.SEVERE, "Called data(key={0}, value={1}) with null parameter.", new Object[] {Failure.nullToStr(key), Failure.nullToStr(value)});
 			return this;
 		}
 		metaData.put(key, value);
@@ -117,9 +117,9 @@ public class RuntimeFailure extends RuntimeException {
 	}
 
 	/** Builder method to add meta data to the exception. */
-	public RuntimeFailure data(Map<String, ? extends Object> moreMetaData) {
+	public Failure data(Map<String, ? extends Object> moreMetaData) {
 		if (moreMetaData == null) {
-			RuntimeFailure.logger.log(Level.SEVERE, "Called data(moreMetaData={0}) with null parameter.", moreMetaData);
+			Failure.logger.log(Level.SEVERE, "Called data(moreMetaData={0}) with null parameter.", moreMetaData);
 			return this;
 		}
 		metaData.putAll(moreMetaData);
@@ -127,9 +127,9 @@ public class RuntimeFailure extends RuntimeException {
 	}
 
 	/** Builder method to add a reason to the exception. */
-	public RuntimeFailure reason(Object reason) {
+	public Failure reason(Object reason) {
 		if (reason == null) {
-			RuntimeFailure.logger.log(Level.SEVERE, "Called reason(reason={0}) with null parameter.", reason);
+			Failure.logger.log(Level.SEVERE, "Called reason(reason={0}) with null parameter.", reason);
 			return this;
 		}
 		reasons.add(reason);
@@ -137,9 +137,9 @@ public class RuntimeFailure extends RuntimeException {
 	}
 
 	/** Builder method to add a operation to the operation hierarchy of the exception. */
-	public RuntimeFailure operation(Object operation) {
+	public Failure operation(Object operation) {
 		if (operation == null) {
-			RuntimeFailure.logger.log(Level.SEVERE, "Called operation(operation={0}) with null parameter.", operation);
+			Failure.logger.log(Level.SEVERE, "Called operation(operation={0}) with null parameter.", operation);
 			return this;
 		}
 		operations.add(operation);
@@ -170,23 +170,23 @@ public class RuntimeFailure extends RuntimeException {
 		return reasons.contains(reason);
 	}
 
-	public final static RuntimeFailure enrich(Throwable e) {
-		return RuntimeFailure.enrichImpl(e);
+	public final static Failure enrich(Throwable e) {
+		return Failure.enrichImpl(e);
 	}
 
-	public final static RuntimeFailure enrich(Throwable e, Object operation) {
-		return RuntimeFailure.enrichImpl(e).operation(operation);
+	public final static Failure enrich(Throwable e, Object operation) {
+		return Failure.enrichImpl(e).operation(operation);
 	}
 
-	public final static RuntimeFailure enrich(Throwable e, Object operation, Object reason) {
-		return RuntimeFailure.enrichImpl(e).operation(operation).reason(reason);
+	public final static Failure enrich(Throwable e, Object operation, Object reason) {
+		return Failure.enrichImpl(e).operation(operation).reason(reason);
 	}
 
-	public final static RuntimeFailure enrichImpl(Throwable e) {
-		if (e instanceof RuntimeFailure) {
-			return (RuntimeFailure) e;
+	public final static Failure enrichImpl(Throwable e) {
+		if (e instanceof Failure) {
+			return (Failure) e;
 		}
-		RuntimeFailure newE = new RuntimeFailure(e);
+		Failure newE = new Failure(e);
 		StackTraceElement[] st = newE.getStackTrace();
 		st = Arrays.copyOfRange(st, 2, st.length);
 		newE.setStackTrace(st);

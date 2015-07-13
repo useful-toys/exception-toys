@@ -33,7 +33,7 @@ package org.usefultoys.exception.unimplemented;
  *
  * @author Daniel Felix Ferber
  */
-public class UnimplementedException extends UnimplementedConstrolStateException {
+public class UnimplementedException extends UnimplementedConstrol {
 	private static final long serialVersionUID = 1L;
 	
 	public UnimplementedException(Throwable e) { super(e); }

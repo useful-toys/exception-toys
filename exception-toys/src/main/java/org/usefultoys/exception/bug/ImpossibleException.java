@@ -15,6 +15,8 @@
  */
 package org.usefultoys.exception.bug;
 
+import org.usefultoys.exception.Failure;
+
 
 /**
  * Marks a declared exception that is not possible be to thrown. If code is
@@ -38,7 +40,7 @@ package org.usefultoys.exception.bug;
  *
  * @author Daniel Felix Ferber
  */
-public class ImpossibleException extends ImpossibleControlStateException {
+public class ImpossibleException extends Failure {
 	private static final long serialVersionUID = 1L;
 	public ImpossibleException(Throwable cause) { super(cause); }
 	public ImpossibleException(String message, Throwable cause) { super(message, cause); }

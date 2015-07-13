@@ -13,16 +13,18 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.usefultoys.exception.bug;
+package org.usefultoys.exception.unimplemented;
+
+
 
 /**
- * Marks a method that is not possible to be called. If code is correct, then
- * this methods must not be called.
+ * Marks a method that has not yet been implemented. Signals that there is
+ * pending work of design or programming to be done.
  *
  * @author Daniel Felix Ferber
  */
-public class ImpossibleMethodException extends ImpossibleControlStateException {
+public class UnimplementedMethod extends UnimplementedConstrol {
 	private static final long serialVersionUID = 1L;
-	public ImpossibleMethodException() { super(); }
-	public ImpossibleMethodException(String message) { super(message); }
+	public UnimplementedMethod() { super(); }
+	public UnimplementedMethod(String message) { super(message); }
 }

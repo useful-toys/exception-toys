@@ -15,22 +15,17 @@
  */
 package org.usefultoys.exception.design;
 
-
 /**
- * The conditional statement (if/switch) has reached a condition that that is
- * known not to be possible. A better code should not provide flows or data
- * domains that allow conditions that are not possible. However, the domain or
- * interface may have been designed by third, or rigorous and strict domain may
- * not be worth.
+ * The method was not intended to be called simultaneously by multiple threads.
+ * A better design should support concurrency gracefully, but this is not always worth or possible.
  * <p>
- * For example, flags or enumerations may be declared as int values, but not all
- * integers are a valid flag or enumeration value.
+ * Example:
  *
  * @author Daniel Felix Ferber
  */
-public class UnsupportedConditionException extends UnsupportedConstrolStateException {
+public class UnsupportedReentrancy extends UnsupportedControl {
 	private static final long serialVersionUID = 1L;
-
-	public UnsupportedConditionException() { super(); }
-	public UnsupportedConditionException(String message) { super(message); }
+	
+	public UnsupportedReentrancy() { super(); }
+	public UnsupportedReentrancy(String message) { super(message); }
 }

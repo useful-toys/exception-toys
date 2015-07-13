@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package infra.exception;
+package org.usefultoys.exception;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import org.usefultoys.exception.ExceptionService;
 
 public class ExceptionServiceTest {
 
@@ -47,15 +46,15 @@ public class ExceptionServiceTest {
         } catch (Exception e) {
             ExceptionService.reportException(System.err, e);
         }
-//        try {
-//            try {
-//                throw new FileNotFoundException("O arquivo não foi encontrado!");
-//            } catch (IOException e) {
-//                throw new RichException(MotivoA.ARQUIVO, e);
-//            }
-//        } catch (Exception e) {
-//            ExceptionService.reportException(System.err, e);
-//        }
+        try {
+            try {
+                throw new FileNotFoundException("O arquivo não foi encontrado!");
+            } catch (IOException e) {
+                throw new Failure(MotivoA.ARQUIVO, e);
+            }
+        } catch (Exception e) {
+            ExceptionService.reportException(System.err, e);
+        }
         ExceptionService.install();
         throw new RuntimeException("Um outro erro...");
     }
