@@ -1,0 +1,3 @@
+include 'exception-toys'
+
+rootProject.name = 'exception-toys'

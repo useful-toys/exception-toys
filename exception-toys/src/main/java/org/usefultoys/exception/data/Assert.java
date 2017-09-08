@@ -1,3 +1,18 @@
+/*
+ * Copyright 2017 Daniel Felix Ferber
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package org.usefultoys.exception.data;
 
 import java.util.Collection;
@@ -17,25 +32,25 @@ public abstract class Assert {
 	public static final Assert Argument = new Argument();
 	
 	public static class Argument extends Assert {
-		@Override protected RuntimeException createException(Object rule) { return new IllegalArgumentDataException(rule); }
-		@Override protected RuntimeException createException(String message) { return new IllegalArgumentDataException(message); }
-		@Override protected RuntimeException createException() { return new IllegalArgumentDataException(); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalArgumentData(rule); }
+		@Override protected RuntimeException createException(String message) { return new IllegalArgumentData(message); }
+		@Override protected RuntimeException createException() { return new IllegalArgumentData(); }
 	};
 
 	public static final Assert Attribute = new Attribute ();
 	
 	public static class Attribute extends Assert {
-		@Override protected RuntimeException createException(Object rule) { return new IllegalAttributeDataException(rule); }
-		@Override protected RuntimeException createException(String message) { return new IllegalAttributeDataException(message); }
-		@Override protected RuntimeException createException() { return new IllegalAttributeDataException(); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalAttributeData(rule); }
+		@Override protected RuntimeException createException(String message) { return new IllegalAttributeData(message); }
+		@Override protected RuntimeException createException() { return new IllegalAttributeData(); }
 	};
 
 	public static final Assert Environment = new Environment();
 
 	public static class Environment extends Assert {
-		@Override protected RuntimeException createException(Object rule) { return new IllegalEnvironmentDataException(rule); }
-		@Override protected RuntimeException createException(String message) { return new IllegalEnvironmentDataException(message); }
-		@Override protected RuntimeException createException() { return new IllegalEnvironmentDataException(); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalEnvironmentData(rule); }
+		@Override protected RuntimeException createException(String message) { return new IllegalEnvironmentData(message); }
+		@Override protected RuntimeException createException() { return new IllegalEnvironmentData(); }
 
 		public final boolean exist(String name) throws RuntimeException {
 			if (System.getenv(name) == null) throw createException(String.format("%s must exist in environment", name));
@@ -46,25 +61,25 @@ public abstract class Assert {
 	public static final Assert Precondition = new Precondition();
 	
 	public static class Precondition extends Assert {
-		@Override protected RuntimeException createException(Object rule) { return new IllegalPreConditionException(rule); }
-		@Override protected RuntimeException createException(String message) { return new IllegalPreConditionException(message); }
-		@Override protected RuntimeException createException() { return new IllegalPreConditionException(); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalPreCondition(rule); }
+		@Override protected RuntimeException createException(String message) { return new IllegalPreCondition(message); }
+		@Override protected RuntimeException createException() { return new IllegalPreCondition(); }
 	};
 
 	public static final Assert Poscondition = new Poscondition();
 
 	public static class Poscondition extends Assert {
-		@Override protected RuntimeException createException(Object rule) { return new IllegalPosConditionException(rule); }
-		@Override protected RuntimeException createException(String message) { return new IllegalPosConditionException(message); }
-		@Override protected RuntimeException createException() { return new IllegalPosConditionException(); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalPosCondition(rule); }
+		@Override protected RuntimeException createException(String message) { return new IllegalPosCondition(message); }
+		@Override protected RuntimeException createException() { return new IllegalPosCondition(); }
 	};
 
 	public static final Assert Invariant = new Invariant();
 	
 	public static class Invariant extends Assert {
-		@Override protected RuntimeException createException(Object rule) { return new IllegalInvariantException(rule); }
-		@Override protected RuntimeException createException(String message) { return new IllegalInvariantException(message); }
-		@Override protected RuntimeException createException() { return new IllegalInvariantException(); }
+		@Override protected RuntimeException createException(Object rule) { return new IllegalInvariant(rule); }
+		@Override protected RuntimeException createException(String message) { return new IllegalInvariant(message); }
+		@Override protected RuntimeException createException() { return new IllegalInvariant(); }
 	};
 
 	protected abstract RuntimeException createException();

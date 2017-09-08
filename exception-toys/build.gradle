@@ -1,0 +1,86 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'signing'
+apply plugin: 'jacoco'
+
+group = 'org.usefultoys'
+version = '1.0.0'
+
+compileJava.options.encoding = 'UTF-8'
+compileJava.options.debug = false
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.+'
+    testCompile 'junit:junit:4.12'
+}
+
+/**** Upload para Maven Central ****/
+/* http://central.sonatype.org/pages/gradle.html */
+javadoc {
+    options.charSet = 'UTF-8'
+    options.author = false
+    options.noDeprecatedList = true
+    options.noHelp = true
+}
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+/*
+O artifact javadocJar ainda não está funcionando. */
+artifacts {
+    archives /*javadocJar,*/ sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: ossrhUsername, password: ossrhPassword)
+            }
+            pom.project {
+                name 'exception-toys'
+                packaging 'jar'
+                description 'A collection of useful exceptions for clear error handling.'
+                url 'https://github.com/useful-toys/exception-toys'
+                inceptionYear '2010'
+                scm {
+                    connection 'scm:git:git@github.com/useful-toys/exception-toys.git'
+                    developerConnection 'scm:git:git@github.com/useful-toys/exception-toys.git'
+                    url 'git@github.com/useful-toys/exception-toys.git'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        name 'Daniel Felix Ferber'
+                        email 'dff4321@gmail.com'
+                        organization 'None'
+                        organizationUrl 'https://github.com/danielferber'
+                    }
+                }
+            }
+        }
+    }
+}

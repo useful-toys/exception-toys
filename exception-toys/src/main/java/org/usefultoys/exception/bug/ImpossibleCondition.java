@@ -1,11 +1,11 @@
 /*
- * Copyright 2012 Daniel Felix Ferber
+ * Copyright 2017 Daniel Felix Ferber
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *   http://www.apache.org/licenses/LICENSE-2.0
+ *      http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -32,12 +32,12 @@ package org.usefultoys.exception.bug;
  * <p>
  * Example:
  * <pre>
- switch (state) {
-   case A: bla bla bla; break;
-   case B: bla bla bla; break;
-   default: throw new ImpossibleCondition();
- }
- </pre>
+ * switch (state) {
+ *   case A: bla bla bla; break;
+ *   case B: bla bla bla; break;
+ *   default: throw new ImpossibleCondition();
+ * }
+ * </pre>
  * Example:
  * <pre>
  * Object a = null;
@@ -48,20 +48,26 @@ package org.usefultoys.exception.bug;
  * }
  * // here, both a and b are never null!
  * if (a != null && b != null) {
-   bla bla bla;
- } else if (a != null) {
-   bla bla bla;
- } else if (b != null) {
-   bla bla bla;
- } else {
-   throw new ImpossibleCondition();
- }
- </pre>
+ *   bla bla bla;
+ * } else if (a != null) {
+ *   bla bla bla;
+ * } else if (b != null) {
+ *   bla bla bla;
+ * } else {
+ *   throw new ImpossibleCondition();
+ * }
+ * </pre>
  *
  * @author Daniel Felix Ferber
  */
-public class ImpossibleCondition extends ImpossibleControl {
-	private static final long serialVersionUID = 1L;
-	public ImpossibleCondition() { super(); }
-	public ImpossibleCondition(String message) { super(message); }
+public class ImpossibleCondition extends Impossible {
+    private static final long serialVersionUID = 1L;
+
+    public ImpossibleCondition() {
+        super();
+    }
+
+    public ImpossibleCondition(String message) {
+        super(message);
+    }
 }

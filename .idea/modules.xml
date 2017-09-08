@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/exception-toys.iml" filepath="$PROJECT_DIR$/.idea/modules/exception-toys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/exception-toys/exception-toys-exception-toys.iml" filepath="$PROJECT_DIR$/.idea/modules/exception-toys/exception-toys-exception-toys.iml" group="exception-toys" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/exception-toys/exception-toys-exception-toys_main.iml" filepath="$PROJECT_DIR$/.idea/modules/exception-toys/exception-toys-exception-toys_main.iml" group="exception-toys" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/exception-toys/exception-toys-exception-toys_test.iml" filepath="$PROJECT_DIR$/.idea/modules/exception-toys/exception-toys-exception-toys_test.iml" group="exception-toys" />
+    </modules>
+  </component>
+</project>
